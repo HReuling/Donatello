@@ -1,0 +1,21 @@
+<!-- 
+  $ roslaunch turtlebot3_gazebo turtlebot3_house.launch 
+  $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/catkin_ws/src/rtc/rtc_maps/gazebo_house_map_2020_12_07.yaml
+  $ rosrun rtc sonar_obstacle_avoidance.py 
+  $ roslaunch rtc sonar_twist_mux.launch
+
+-->
+
+<launch>
+  <!-- Output -->
+  <arg name="topic_cmd_vel_out" default="/cmd_vel"/>
+  <!-- Priorities -->
+  <arg name="config_mux" default="$(find rtc)/nodes/ue08_sonar_gazebo/config/twist_mux.yaml"/>
+ 
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux">
+    <rosparam command="load" file="$(arg config_mux)" />
+    <remap from="cmd_vel_out" to="$(arg topic_cmd_vel_out)" />
+    <!--remap from="cmd_vel_out" to="cmd_vel" /-->
+  </node>
+
+</launch>
