@@ -1,0 +1,7 @@
+image: /home/soren/catkin_ws/src/maps/labor_final.pgm
+resolution: 0.050000
+origin: [-10.9, -3.7, -0.523]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

@@ -162,4 +162,60 @@
     </inertial>
   </link>
 
+ <!-- Added for VL53 by OJ 
+ https://medium.com/teamarimac/integrating-sonar-and-ir-sensor-plugin-to-robot-model-in-gazebo-with-ros-656fd9452607
+ https://github.com/ros-simulation/gazebo_ros_pkgs/blob/kinetic-devel/gazebo_plugins/test/test_worlds/gazebo_ros_range.world#L82
+ -->
+    <joint name="VL53_front_joint_left" type="fixed">
+        <axis xyz="0 1 0" />
+        <!-- Ausrichtung des Sensors yaw 120° 2.0944 rad-->
+        <!-- Ausrichtung des Sensors yaw 60° 1.0472 rad-->
+        <origin rpy="0 -0.01 1.0472" xyz="0.05 -0.06 0.06" /> <!-- z = 6cm über Boden -->-->
+        <parent link="base_link"/>
+        <child link="base_VL53_front_left"/>
+    </joint>
+    <link name="base_VL53_front_left">
+        <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <box size="0.005 0.02 0.01"/>
+        </geometry>
+        </collision>    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <box size="0.005 0.02 0.01"/>
+        </geometry>
+        </visual>    <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+        </inertial>
+    </link>
+
+
+ <joint name="VL53_front_joint_right" type="fixed">
+        <axis xyz="0 1 0" />
+        <origin rpy="0 -0.01 -1.0472" xyz="0.05 0.06 0.06" />
+        <parent link="base_link"/>
+        <child link="base_VL53_front_right"/>
+    </joint>
+    <link name="base_VL53_front_right">
+        <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <box size="0.005 0.02 0.01"/>
+        </geometry>
+        </collision>    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <box size="0.005 0.02 0.01"/>
+        </geometry>
+        </visual>    <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+        </inertial>
+    </link>
+
+
 </robot>
