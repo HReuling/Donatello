@@ -25,7 +25,16 @@
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>
   </include>
 
-  <include file="$(find twist_mux)/launch/twist_mux.launch"/>
+  <!-- VL53 to Costmap-->
+  <node pkg="donatello" type="VL53_to_costmap.py" name="VL53Costmap" output="screen">
+    <param name="max_dist_vl53" type="double" value="$(arg max_dist_vl53)" />
+  </node>
+
+  <!-- Clear Costmap-->
+  <node pkg="donatello" type="clear_costmap.py" name="ClearOwnCostmap" output="screen">
+    <param name="delayVL" type="double" value="$(arg delayVL)" />
+    <param name="delayClear" type="double" value="$(arg delayClear)" />
+  </node>
 
 
   <!-- rviz -->

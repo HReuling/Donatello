@@ -19,8 +19,8 @@ obstacle_layer:
  combination_method: 1
 
  observation_sources: laser_scan_sensor vl53
- laser_scan_sensor: {data_type: LaserScan, topic: scan, marking: true, clearing: false}
- vl53: {sensor_frame: base_link, data_type: PointCloud, topic: /VL53/point_cloud, marking: true, clearing: false}
+ laser_scan_sensor: {data_type: LaserScan, topic: scan, marking: true, clearing: true}
+ vl53: {sensor_frame: base_link, data_type: PointCloud, topic: /VL53/point_cloud, marking: true, clearing: true}
 
 
 inflation_layer:
