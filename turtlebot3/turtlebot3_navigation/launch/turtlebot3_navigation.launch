@@ -16,6 +16,8 @@
   <!-- Map server -->
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
+  <node pkg="donatello" type="VL53_Regler.py" name="VL53Regler" output="screen"/>
+
   <!-- AMCL -->
   <include file="$(find turtlebot3_navigation)/launch/amcl.launch"/>
 
