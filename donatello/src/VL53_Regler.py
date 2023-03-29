@@ -8,7 +8,7 @@ dist_max = 0.3
 # minimal distance to obstacle
 dist_min = 0.2
 # when laser scan is under this value no obstacles are avoided
-min_scan_dist = 0.3
+min_scan_dist = 0.2
 
 # number of distances that are middled
 middle_length = 3
